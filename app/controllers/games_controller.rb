@@ -6,14 +6,16 @@ class GamesController < ApplicationController
 
   def score
     answer = params[:new]
+    random = ('a'..'z').to_a
+    @letters = random.sample(10)
 
-    word_array = answer.split('');
+    word_array = answer.split('')
     if word_array.all? { |letter| @letters.include?(letter) }
       @message = "🎉 Congrats"
-      @result = "<strong>#{answer}</strong> matches the letters!"
+      @result = "#{answer} matches the letters!"
     else
       @message = "😔 Sorry"
-      @result = "<strong>#{answer}</strong> can't be built with these letters."
+      @result = "#{answer} can't be built with these letters."
     end
   end
 end
