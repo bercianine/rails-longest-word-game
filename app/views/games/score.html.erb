@@ -32,17 +32,18 @@
         <form action="/score" method="post" data-turbo="false" class="d-flex mb-32">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           <input class="form-control me-2" type="text" name="new">
-          <input class="btn btn-primary" type="submit" value="Send">
+          <input class="btn btn-primary" type="submit" value="Send" disabled>
         </form>
       </div>
     </div>
     <div class="row justify-content-center">
-      <div class="col-12 col-lg-4">
-        <h3 class="text-center mb-3"><%= @message %></h3>
+      <div class="col-12 col-lg-4 text-center">
+        <h3 class="mb-3"><%= @message %></h3>
         <div class="d-flex justify-content-center" id="result">
-          <h5 class="text-center"><%= @answer %></h5>
-          <h5 class="text-center weight-normal"><%= @result %></h5>
+          <h5><%= @answer %></h5>
+          <h5 class="weight-normal"><%= @result %></h5>
         </div>
+        <%= link_to "Play again", new_path, class: "btn btn-primary mt-3" %>
       </div>
     </div>
   </div>
