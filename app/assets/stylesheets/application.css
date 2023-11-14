@@ -20,7 +20,19 @@
   text-align: center;
 }
 
-.d-flex {
+#cards {
   gap: 16px;
+  margin-bottom: 32px;
+}
+
+.weight-normal {
+  font-weight: 300;
+}
+
+#result {
+  gap: 8px;
+}
+
+.mb-32 {
   margin-bottom: 32px;
 }

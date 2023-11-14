@@ -16,8 +16,8 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-12 col-lg-8">
-        <div class="d-flex justify-content-center">
-          <% @letters.each do |letter| %>
+        <div class="d-flex justify-content-center" id="cards">
+          <% session[:letters].each do |letter| %>
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title"><%= letter.capitalize %></h5>
@@ -29,7 +29,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="col-12 col-lg-8">
-        <form action="/score" method="post" data-turbo="false" class="d-flex">
+        <form action="/score" method="post" data-turbo="false" class="d-flex mb-32">
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
           <input class="form-control me-2" type="text" name="new">
           <input class="btn btn-primary" type="submit" value="Send">
@@ -39,7 +39,10 @@
     <div class="row justify-content-center">
       <div class="col-12 col-lg-4">
         <h3 class="text-center mb-3"><%= @message %></h3>
-        <h5 class="text-center mb-5"><%= @result %></h5>
+        <div class="d-flex justify-content-center" id="result">
+          <h5 class="text-center"><%= @answer %></h5>
+          <h5 class="text-center weight-normal"><%= @result %></h5>
+        </div>
       </div>
     </div>
   </div>
